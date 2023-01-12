@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/player.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1, 1 )
+
+[node name="Player" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource( 1 )
+move_scale = 15.0
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2( 32, 24 )
+polygon = PoolVector2Array( -32, -26, -30, -26, -30, -24, -32, -24 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="Polygon2D"]
+position = Vector2( 0, 6 )
+color = Color( 0.643137, 0.643137, 0.643137, 1 )
+polygon = PoolVector2Array( -32, -34, -30, -34, -30, -32, -32, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PlayerCollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2( 1, -1 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 4, 0 )
+current = true
+zoom = Vector2( 0.05, 0.05 )
+__meta__ = {
+"_edit_lock_": true
+}
